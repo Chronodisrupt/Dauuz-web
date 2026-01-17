@@ -2,7 +2,7 @@
 
 const supabaseUrl = 'https://ydeczzyvfgwwmfornfef.supabase.co';
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlkZWN6enl2Zmd3d21mb3JuZmVmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc5Njc1ODksImV4cCI6MjA4MzU0MzU4OX0.IBNkcqDJtQSurdKaic94iRrc4NYnO8m1e1bQzbkkstc";
-  
+
 const supabaseClient = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
@@ -52,41 +52,41 @@ async function ensureProfileExists() {
     .eq("id", user.id)
     .maybeSingle();
 
-  if (!existing) {
-    // Extract Google info safely
-    const fullName =
-      user.user_metadata?.full_name ||
-      user.user_metadata?.name ||
-      "Google User";
+  if (existing) return; // 👈 IMPORTANT: do nothing if profile already exists
 
-    const email = user.email;
+  // Extract Google info safely
+  const fullName =
+    user.user_metadata?.full_name ||
+    user.user_metadata?.name ||
+    "Google User";
 
-    // Create clean username from email
-    const baseUsername = email
-      .split("@")[0]
-      .replace(/[^a-zA-Z0-9]/g, "");
+  const email = user.email;
 
-    const username = baseUsername + "_" + user.id.slice(0, 6);
+  // Create clean username from email
+  const baseUsername = email
+    .split("@")[0]
+    .replace(/[^a-zA-Z0-9]/g, "");
 
-    const referralCode = username;
+  const username = baseUsername + "_" + user.id.slice(0, 6);
 
-    // Insert new profile
-    const { error } = await supabaseClient.from("profiles").insert({
-      id: user.id,
-      full_name: fullName,
-      username: username,
-      email: email,
-      phone: "",
-      device_id: deviceId,
-      referral_code: referralCode,
-      balance: 0
-    });
+  const referralCode = username;
 
-    if (error) {
-      console.error("Profile creation failed:", error);
-    } else {
-      console.log("Google profile created!");
-    }
+  // Insert new profile
+  const { error } = await supabaseClient.from("profiles").insert({
+    id: user.id,
+    full_name: fullName,
+    username: username,
+    email: email,
+    phone: "",
+    device_id: deviceId,
+    referral_code: referralCode,
+    balance: 0
+  });
+
+  if (error) {
+    console.error("Profile creation failed:", error);
+  } else {
+    console.log("Google profile created!");
   }
 }
 
@@ -198,7 +198,10 @@ function authInit(mode) {
     googleBtn.addEventListener("click", signInWithGoogle);
   }
 
-  ensureProfileExists();
+  // ✅ CRITICAL FIX: always check profile AFTER login/Google redirect
+  setTimeout(() => {
+    ensureProfileExists();
+  }, 800);
 }
 
 /* ---------- PAGE GUARD ---------- */
