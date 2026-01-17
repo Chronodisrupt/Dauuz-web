@@ -1,0 +1,312 @@
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to bottom, #e0f7f1, #ffffff);
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #4a716e;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.nav-links a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+}
+
+.rituals-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.rituals-container h1 {
+  text-align: center;
+  color: #3d5a5a;
+  margin-bottom: 8px;
+}
+
+.rituals-container p {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2f4f4f;
+}
+
+.ritual-card {
+  background: #f0f9f5;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ritual-card h2 {
+  color: #3d5a5a;
+  margin-bottom: 12px;
+}
+
+.ritual-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.ritual-card textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #cde4dc;
+  resize: vertical;
+}
+
+#calm-btn {
+  padding: 8px 16px;
+  background: #3d5a5a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#calm-status {
+  margin-top: 6px;
+  font-style: italic;
+  color: #2f4f4f;
+}
+
+.submit-btn {
+  display: block;
+  margin: 0 auto 24px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: #3d5a5a;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#message {
+  text-align: center;
+  font-weight: bold;
+  color: #3d5a5a;
+}
+
+/* Calm Challenge Modal */
+.calm-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.calm-content {
+  background: #e0f7f1;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  color: #1a1a1a;
+  position: relative;
+}
+
+#breath-circle {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background: #3d5a5a;
+  animation: ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
+
+#close-calm-btn {
+  padding: 8px 16px;
+  border: none;
+  background: #3d5a5a;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ritual-card { padding: 16px; }
+}
+
+
+
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #4a716e;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px #4a716e;
+}
+.logo img {
+  height: 36px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e9ecf1;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: #1b1f29;
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-btn { display: flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #668f8b;
+    padding: 12px 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .nav-links a { padding: 10px 20px; }
+
+  .nav-links.open { max-height: 300px; opacity: 1; }
+
+  .menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn.active span:nth-child(2) { opacity: 0; }
+  .menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+
+
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #7c7c7c;
+}
+
+
+/* Floating Help Button */
+.floating-help-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #d4a254, #b8863b);
+  color: #0f0f0f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(212, 162, 84, 0.5);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.floating-help-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 30px rgba(212, 162, 84, 0.7);
+}
+
+@media (max-width: 768px) {
+  .floating-help-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}

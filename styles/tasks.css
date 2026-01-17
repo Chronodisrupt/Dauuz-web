@@ -1,0 +1,335 @@
+/* 
+   Reset & Base
+*/
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  color: #eaeaea;
+  background: linear-gradient(120deg, #0f0f0f, #111111);
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
+}
+
+/* 
+   Animated Background
+*/
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 
+   Navbar
+*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(10,10,12,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo img {
+ 
+  transition: transform 0.4s ease;
+}
+.logo img:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #eaeaea;
+  padding: 6px 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-links a:hover {
+  color: #d4a254;
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(212,162,84,0.5);
+}
+
+/* Hamburger */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-btn { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(15,15,20,0.95);
+    padding: 10px 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+  }
+  .nav-links.open { max-height: 300px; opacity: 1; }
+}
+
+/* 
+   Dashboard Container
+*/
+.dashboard {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  perspective: 1000px;
+}
+
+/* 
+   Task Cards
+*/
+.task-card {
+  background: rgba(25,25,30,0.85);
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,255,255,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+}
+
+/* Card Hover Tilt */
+.task-card:hover {
+  transform: rotateX(3deg) rotateY(-3deg) translateZ(5px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.8), inset 0 0 20px rgba(212,162,84,0.25);
+  background: rgba(35,35,40,0.95);
+}
+
+/* Task Titles */
+.task-card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #d4a254;
+}
+
+/* Task Text */
+.task-card p {
+  color: #e0d4b8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Inputs and Textareas */
+.task-card input[type="text"],
+.task-card input[type="file"],
+.task-card textarea {
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(40,40,45,0.9);
+  color: #eaeaea;
+  transition: all 0.3s ease;
+}
+.task-card input[type="text"]:focus,
+.task-card input[type="file"]:focus,
+.task-card textarea:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(212,162,84,0.4);
+}
+
+/* Buttons */
+.task-card button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d4a254, #b8863b);
+  color: #0f0f0f;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.task-card button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.5s ease;
+}
+.task-card button:hover::before {
+  transform: rotate(45deg) scale(1);
+}
+.task-card button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(212,162,84,0.3);
+}
+
+/* 
+   Responsive
+*/
+@media (max-width: 640px) {
+  .dashboard {
+    margin: 40px 20px;
+  }
+  .task-card {
+    padding: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* X Post Task Styling */
+.task-instructions {
+  background: #666;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.task-instructions h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.task-instructions ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.task-instructions ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.task-instructions li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #666;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input[type="file"] {
+  padding: 0.5rem;
+}
+
+#x-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #7c7c7c;
+}
+
+
+/* Floating Help Button */
+.floating-help-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #d4a254, #b8863b);
+  color: #0f0f0f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(212, 162, 84, 0.5);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.floating-help-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 30px rgba(212, 162, 84, 0.7);
+}
+
+@media (max-width: 768px) {
+  .floating-help-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}
