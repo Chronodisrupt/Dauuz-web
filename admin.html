@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+
+<div class="login-box" id="login-box">
+  <h2>Admin Login</h2>
+  <input id="admin-username" placeholder="Username">
+  <input id="admin-password" placeholder="Password" type="password">
+  <button id="login-btn">Login</button>
+  <p id="login-error"></p>
+</div>
+
+<div class="analytics-dashboard">
+  
+  <div class="metric-card">
+    <h3>Approved Today</h3>
+    <p id="approved-today">Loading...</p>
+  </div>
+  
+  <div class="metric-card">
+    <h3>Signups Today</h3>
+    <p id="signups-today">Loading...</p>
+  </div>
+</div>
+
+<div class="dashboard hidden" id="dashboard">
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+  <section>
+    
+  </section>
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
+
+
+
+
+

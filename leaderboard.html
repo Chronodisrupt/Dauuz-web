@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="styles/leaderboard.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" sizes="156x156">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo"><img src="logo.png" alt="DUZ"></div>
+    <button class="menu-btn" id="menu-btn">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="task.html">Earn DUZ</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" id="logout-btn">Logout</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <h1>Top DUZ Earners</h1>
+    <ul id="leaderboard-list">
+      <li>Loading...</li>
+    </ul>
+  </main>
+
+      <a href="how-it-works.html" class="floating-help-btn" title="How It Works">
+  ?
+</a>
+
+  <footer>
+    © 2026 DAUUZ : Built in public.
+  </footer>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/leaderboard.js"></script>
+
+  <script>
+  const btn = document.getElementById("menu-btn");
+  const links = document.getElementById("nav-links");
+
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    links.classList.toggle("open");
+  });
+</script>
+
+</body>
+</html>
+

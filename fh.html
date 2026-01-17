@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="site-header">
+  <div class="logo-wrap">
+    <img src="logo.png" alt="DUZ Logo" class="logo">
+  </div>
+
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+</body>
+<style>
+    /* Header layout */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #0b0b0b;
+}
+
+/* Logo container */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image */
+.logo {
+  width: 80px;        /* change size here */
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* Navigation links */
+.nav a {
+  color: #ffffff;
+  margin-left: 18px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+</style>
+
+</html>

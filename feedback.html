@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Feedback</title>
+  <link rel="stylesheet" href="styles/feedback.css">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><img src="logo.png" alt="DUZ" ></div>
+    <button class="menu-btn" id="menu-btn"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="task.html">Earn DUZ</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" id="logout-btn">Logout</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <h1>Submit Your Feedback</h1>
+    <p>You can submit feedback once per week.</p>
+
+    <textarea id="feedback-text" rows="6" placeholder="Share your experience or thoughts..."></textarea>
+    <button id="feedback-submit">Submit Feedback</button>
+  </main>
+
+
+
+        <a href="how-it-works.html" class="floating-help-btn" title="How It Works">
+  ?
+</a>
+
+  <footer>
+    © 2026 DAUUZ : Built in public.
+  </footer>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/feedback.js"></script>
+</body>
+</html>

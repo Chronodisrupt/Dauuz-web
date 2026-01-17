@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon" sizes="156x156">
+</head>
+<body>
+  <!-- Navbar -->
+    <header class="navbar">
+      <div class="logo"><img src="logo.png" alt="DUZ"></div>
+
+      <button class="menu-btn" id="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="task.html">Earn</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="login.html" id="logout-btn">Logout</a>
+      </nav>
+    </header>
+
+  <!-- Dashboard content -->
+  <main class="dashboard">
+    <h1>Welcome, <span id="username-display">User</span></h1>
+
+    <div class="balance-card">
+      <h2>Your DUZ Balance:</h2>
+      <p id="balance">0 DUZ</p>
+    </div>
+
+    <div class="recent-rewards">
+      <h3>Pending Tasks</h3>
+      <ul id="pending-list"></ul>
+    </div>
+
+      <div class="recent-rewards">
+        <h3>Completed Tasks</h3>
+        <ul id="completed-list"></ul>
+    </div>
+
+
+  </main>
+
+
+
+  <a href="how-it-works.html" class="floating-help-btn" title="How It Works">
+  ?
+  </a>
+
+  <footer>
+    © 2026 DAUUZ : Built in public.
+  </footer>
+
+  <script>
+  const btn = document.getElementById("menu-btn");
+  const links = document.getElementById("nav-links");
+
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    links.classList.toggle("open");
+  });
+</script>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/dashboard.js"></script>
+
+
+
+</body>
+</html>

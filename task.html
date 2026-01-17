@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn DUZ</title>
+    <link rel="stylesheet" href="styles/tasks.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" sizes="156x156">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo"><img src="logo.png" alt="DUZ" class="logo"></div>
+    <button class="menu-btn" id="menu-btn"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="task.html">Tasks</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" id="logout-btn">Logout</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <h1>Earn DUZ</h1>
+
+    <div class="task-card">
+      <h2>Referral</h2>
+      <p>Reward: 0.001 DUZ</p>
+      <button id="referral-btn">Generate Referral Link</button>
+      <p id="referral-link"></p>
+    </div>
+
+    <div class="task-card">
+      <h2>📱 Post on X (Twitter)</h2>
+      <p class="task-reward">Reward: 0.00125 DUZ per post (max 4/day)</p>
+      
+      <div class="task-instructions">
+        <h4>How to complete:</h4>
+        <ol>
+          <li>Follow <a href="https://x.com/dauzz_official" target="_blank" style="color: #1DA1F2;">@DUZ</a> on X</li>
+          <li>Create a post about DAUUZ (be creative!)</li>
+          <li>Tag <strong>@dauzz_official</strong> in your post</li>
+          <li>Take a screenshot from YOUR PROFILE showing:
+            <ul>
+              <li>Your post with our tag visible</li>
+              <li>Your username at the top</li>
+              <li>Post timestamp</li>
+            </ul>
+          </li>
+          <li>Submit screenshot + your X username below</li>
+        </ol>
+      </div>
+      
+      <form id="x-task-form">
+        <div class="form-group">
+          <label>Your X Username (without @)</label>
+          <input type="text" id="x-username" placeholder="e.g., elonmusk" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Screenshot of your post (from your profile)</label>
+          <input type="file" id="x-screenshot" accept="image/*" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Post URL (optional, helps us verify faster)</label>
+          <input type="url" id="x-post-url" placeholder="https://x.com/yourhandle/status/...">
+        </div>
+        
+        <button type="submit" id="x-submit-btn">Submit for Approval</button>
+      </form>
+    </div>
+    
+    <div class="task-card">
+      <h2>Survey</h2>
+      <p>Reward: 0.005 DUZ</p>
+      <button id="survey-btn">Take Survey</button>
+    </div>
+
+    <div class="task-card">
+      <h2>Send Feedback</h2>
+      <p>Reward: 0.0014 DUZ</p>
+      <button id="feedback-btn"><a href="feedback.html" style="text-decoration: none; color: #0f0f0f;">Tell us about your experience</a></button>
+    </div>
+
+    <div class="task-card">
+      <h2>Wellness Routine</h2>
+      <p>Reward: 0.014 DUZ</p>
+      <button id="routine-btn"><a href="daily.html" style="text-decoration: none; color: #0f0f0f;">Start your daily routine</a></button>
+    </div>
+
+    <div class="task-card">
+      <h2>Ideas</h2>
+      <p>Reward: 1 DUZ (if your idea is genuine and the team adopt it)</p>
+      <textarea id="ideaContent" placeholder="Type your idea here..."></textarea><br>
+      <button id="idea-btn">Submit Idea</button>
+    </div>
+  </main>
+    <a href="how-it-works.html" class="floating-help-btn" title="How It Works">
+  ?
+</a>
+
+  <footer>
+    © 2026 DAUUZ : Built in public.
+  </footer>
+  
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/tasks.js"></script>
+</body>
+</html>

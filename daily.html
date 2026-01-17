@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Reflection</title>
+  <link rel="stylesheet" href="styles/daily.css">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon" sizes="156x156">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><img src="logo.png" alt="DUZ" ></div>
+    <button class="menu-btn" id="menu-btn"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="task.html">Task</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" id="logout-btn">Logout</a>
+    </nav>
+  </header>
+  <main class="rituals-container">
+    <h1>🌿 Welness Routine</h1>
+    <p>Reflect, show gratitude, and spread kindness.</p>
+
+    <form id="rituals-form">
+      <div class="ritual-card">
+        <h2>Daily Reflection</h2>
+        <label>What stressed you today?</label>
+        <textarea id="stress" required></textarea>
+        <label>What helped?</label>
+        <textarea id="helped" required></textarea>
+        <label>What will you try tomorrow?</label>
+        <textarea id="tomorrow" required></textarea>
+      </div>
+
+      <div class="ritual-card">
+        <h2>Gratitude Checkpoint</h2>
+        <label>One thing you're grateful for:</label>
+        <textarea id="gratitude" required></textarea>
+      </div>
+
+      <div class="ritual-card">
+        <h2>Calm Challenge</h2>
+        <p>Complete a 2-minute grounding exercise.</p>
+        <button type="button" id="calm-btn">Start Timer</button>
+        <p id="calm-status">Not started</p>
+      </div>
+
+      <div class="ritual-card">
+        <h2>Kindness Tracker</h2>
+        <label>Log one positive action done for someone else:</label>
+        <textarea id="kindness" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Rituals</button>
+    </form>
+
+    <p id="message"></p>
+  </main>
+
+        <a href="how-it-works.html" class="floating-help-btn" title="How It Works">
+  ?
+</a>
+
+  <footer>
+    © 2026 DAUUZ : Built in public.
+  </footer>
+
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/daily.js"></script>
+</body>
+</html>
