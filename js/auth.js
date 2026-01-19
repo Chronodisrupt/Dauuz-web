@@ -202,30 +202,33 @@ function authInit(mode) {
   setTimeout(() => {
     ensureProfileExists();
   }, 800);
-}
 
-
-/* ---------- FORGOT PASSWORD ---------- */
+  /* ---------- FORGOT PASSWORD ---------- */
   const forgot = document.getElementById("forgot-password");
-  if (forgot) {
-    forgot.addEventListener("click", async () => {
-      const email = document.getElementById("email")?.value.trim();
-      if (!email) return alert("Enter your email first");
 
-      const { error } =
-        await supabaseClient.auth.resetPasswordForEmail(email, {
-          redirectTo:
-            "https://dauuz.netlify.app/forget-password.html"
-        });
+if (forgot) {
+  forgot.addEventListener("click", async () => {
+    const email = document.getElementById("email")?.value.trim();
 
-      if (error) alert(error.message);
-      else alert("Password reset email sent!");
-    });
-  }
+    if (!email) {
+      alert("Enter your email first");
+      return;
+    }
+
+    const { error } =
+      await supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo:
+          "https://dauuz.netlify.app/forget-password.html"
+      });
+
+    if (error) alert(error.message);
+    else alert("Password reset email sent!");
+  });
 }
 
 
-
+  
+}
 
 
 /* ---------- PAGE GUARD ---------- */
