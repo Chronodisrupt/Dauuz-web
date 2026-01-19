@@ -215,7 +215,7 @@ function authInit(mode) {
       const { error } =
         await supabaseClient.auth.resetPasswordForEmail(email, {
           redirectTo:
-            "https://chronodisrupt.github.io/DUZ-web/reset-password.html"
+            "https://dauuz.netlify.app/forget-password.html"
         });
 
       if (error) alert(error.message);
