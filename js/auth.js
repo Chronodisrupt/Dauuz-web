@@ -204,6 +204,30 @@ function authInit(mode) {
   }, 800);
 }
 
+
+/* ---------- FORGOT PASSWORD ---------- */
+  const forgot = document.getElementById("forgot-password");
+  if (forgot) {
+    forgot.addEventListener("click", async () => {
+      const email = document.getElementById("email")?.value.trim();
+      if (!email) return alert("Enter your email first");
+
+      const { error } =
+        await supabaseClient.auth.resetPasswordForEmail(email, {
+          redirectTo:
+            "https://chronodisrupt.github.io/DUZ-web/reset-password.html"
+        });
+
+      if (error) alert(error.message);
+      else alert("Password reset email sent!");
+    });
+  }
+}
+
+
+
+
+
 /* ---------- PAGE GUARD ---------- */
 async function protectPage() {
   const { data } = await supabaseClient.auth.getSession();
