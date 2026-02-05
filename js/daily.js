@@ -72,18 +72,18 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
     calmBtn.disabled = true;
 
     const steps = [
-      { text: "Breath...", duration: 4650 },
-      { text: "Breath...", duration: 4650 },
-      { text: "Yes...", duration: 4650 },
+      { text: "Breath in...", duration: 4650 },
+      { text: "Breath out...", duration: 4650 },
+      { text: "Empty your mind", duration: 4650 },
       { text: "Feel the pressure leaving...", duration: 4650 },
       { text: "Ease the tension...", duration: 4650 },
       { text: "You are unique...", duration: 4650 },
       { text: "You are special...", duration: 4650 },
       { text: "You are healing...", duration: 4650 },
       { text: "One more time...", duration: 4650 },
-      { text: "Breath...", duration: 4650 },
-      { text: "Breath...", duration: 4650 },
-      { text: "Yes...", duration: 4650 },
+      { text: "Breath in...", duration: 4650 },
+      { text: "Breath out...", duration: 4650 },
+      { text: "Empty your mind", duration: 4650 },
       { text: "Feel the pressure leaving...", duration: 4650 },
       { text: "Ease the tension...", duration: 4650 },
       { text: "You are unique...", duration: 4650 },
@@ -104,7 +104,7 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
         // Automatically mark calmDone and award points
         calmDone = true;
-        return;
+        return alert("You Did Well!");
       }
 
       breathText.textContent = steps[i].text;
