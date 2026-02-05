@@ -218,7 +218,7 @@ if (forgot) {
     const { error } =
       await supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo:
-          "https://dauuz.netlify.app/forget-password.html"
+          "https://dauuz.pages.dev/forget-password.html"
       });
 
     if (error) alert(error.message);
